@@ -18,8 +18,8 @@ class P2PStub(object):
         """
         self.MessageStream = channel.stream_stream(
                 '/protowire.P2P/MessageStream',
-                request_serializer=messages__pb2.KaspadMessage.SerializeToString,
-                response_deserializer=messages__pb2.KaspadMessage.FromString,
+                request_serializer=messages__pb2.KarlsendMessage.SerializeToString,
+                response_deserializer=messages__pb2.KarlsendMessage.FromString,
                 )
 
 
@@ -37,8 +37,8 @@ def add_P2PServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'MessageStream': grpc.stream_stream_rpc_method_handler(
                     servicer.MessageStream,
-                    request_deserializer=messages__pb2.KaspadMessage.FromString,
-                    response_serializer=messages__pb2.KaspadMessage.SerializeToString,
+                    request_deserializer=messages__pb2.KarlsendMessage.FromString,
+                    response_serializer=messages__pb2.KarlsendMessage.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,8 +62,8 @@ class P2P(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/protowire.P2P/MessageStream',
-            messages__pb2.KaspadMessage.SerializeToString,
-            messages__pb2.KaspadMessage.FromString,
+            messages__pb2.KarlsendMessage.SerializeToString,
+            messages__pb2.KarlsendMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -79,8 +79,8 @@ class RPCStub(object):
         """
         self.MessageStream = channel.stream_stream(
                 '/protowire.RPC/MessageStream',
-                request_serializer=messages__pb2.KaspadMessage.SerializeToString,
-                response_deserializer=messages__pb2.KaspadMessage.FromString,
+                request_serializer=messages__pb2.KarlsendMessage.SerializeToString,
+                response_deserializer=messages__pb2.KarlsendMessage.FromString,
                 )
 
 
@@ -98,8 +98,8 @@ def add_RPCServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'MessageStream': grpc.stream_stream_rpc_method_handler(
                     servicer.MessageStream,
-                    request_deserializer=messages__pb2.KaspadMessage.FromString,
-                    response_serializer=messages__pb2.KaspadMessage.SerializeToString,
+                    request_deserializer=messages__pb2.KarlsendMessage.FromString,
+                    response_serializer=messages__pb2.KarlsendMessage.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -123,7 +123,7 @@ class RPC(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/protowire.RPC/MessageStream',
-            messages__pb2.KaspadMessage.SerializeToString,
-            messages__pb2.KaspadMessage.FromString,
+            messages__pb2.KarlsendMessage.SerializeToString,
+            messages__pb2.KarlsendMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
