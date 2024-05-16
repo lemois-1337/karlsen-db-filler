@@ -7,6 +7,7 @@ from datetime import datetime
 from sqlalchemy.exc import IntegrityError
 
 from dbsession import session_maker
+from models.Balance import Balance
 from models.Block import Block
 from models.Transaction import Transaction, TransactionOutput, TransactionInput
 from utils.Event import Event
